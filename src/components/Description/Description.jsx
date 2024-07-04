@@ -1,5 +1,3 @@
-// import s from "./Description.css";
-
 const Description = () => {
   return (
     <>

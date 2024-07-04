@@ -1,0 +1,40 @@
+:root {
+  --first-color: #ded4e8;
+  --second-color: #c7395f;
+  --third-color: #e8ba40;
+}
+
+.optionsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  background-color: var(--third-color);
+  color: var(--second-color);
+  transition: transform 250ms ease, opacity 250ms ease, box-shadow 250ms ease;
+}
+
+.button:active {
+  transform: scale(0.95);
+}
+
+.button:focus {
+  outline: 0;
+}
+
+.button:hover,
+.button:active {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  background-color: var(--second-color);
+  color: var(--first-color);
+}
+
+@media screen and (min-width: 768px) {
+  .optionsWrapper {
+    flex-direction: row;
+  }
+}
