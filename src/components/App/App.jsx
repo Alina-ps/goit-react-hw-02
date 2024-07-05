@@ -4,6 +4,7 @@ import Description from "../Description/Description";
 import Feedback from "../Feedback/Feedback";
 import Options from "../Options/Options";
 import Notification from "../Notification/Notification";
+import Modal from "../Modal/Modal";
 
 function App() {
   const [feedback, setFeedback] = useState(() => {
@@ -40,6 +41,19 @@ function App() {
   const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
   const positiveFeedback = Math.round((feedback.good / totalFeedback) * 100);
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsOpen(true);
+    setTimeout(() => {
+      setIsOpen(false);
+    }, 1000);
+  };
+
+  const handleCloseModal = () => {
+    setIsOpen(false);
+  };
+
   return (
     <>
       <Description />
@@ -47,6 +61,7 @@ function App() {
         updateFeedback={updateFeedback}
         total={totalFeedback}
         reset={resetFeedback}
+        openModal={handleOpenModal}
       />
       {totalFeedback > 0 ? (
         <Feedback
@@ -57,6 +72,7 @@ function App() {
       ) : (
         <Notification />
       )}
+      {isOpen && <Modal isVisible={isOpen} onClose={handleCloseModal} />}
     </>
   );
 }

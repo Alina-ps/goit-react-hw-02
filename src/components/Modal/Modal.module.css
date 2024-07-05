@@ -1,0 +1,36 @@
+.modal {
+  padding: 5px 20px;
+  background-color: var(--third-color);
+  display: flex;
+  position: fixed;
+  top: 2%;
+  right: 2%;
+  border-radius: 4px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.modal.show {
+  opacity: 1;
+}
+
+.modal.hide {
+  opacity: 0;
+}
+
+.modalText {
+  padding: 0;
+  margin: 0;
+  margin-right: 20px;
+}
+
+.modalBtn {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  padding: 0;
+  cursor: pointer;
+  color: var(--second-color);
+  background-color: transparent;
+}
